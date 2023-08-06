@@ -11,7 +11,7 @@ jobs:
       - name: slack-send
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          payload-file-path: |
+          payload: |
             {
               "channel": "#코틀린-미션-스터디",
               "username": "사이보그 현구막",
