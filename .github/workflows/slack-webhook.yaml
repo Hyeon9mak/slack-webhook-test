@@ -11,6 +11,12 @@ jobs:
       - name: slack-send
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          payload-file-path: ./.github/resources/payload-slack-content.json
+          payload-file-path: |
+{
+  "channel": "#코틀린-미션-스터디",
+  "username": "사이보그 현구막",
+  "text": "인간시대의 끝이 도래했다.",
+  "icon_url": "https://opgg-static.akamaized.net/meta/images/lol/champion/Blitzcrank.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_160&v=1690894796332"
+}
         env:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
