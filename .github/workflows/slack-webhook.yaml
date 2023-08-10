@@ -19,4 +19,4 @@ jobs:
               "icon_url": "https://opgg-static.akamaized.net/meta/images/lol/champion/Blitzcrank.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_160&v=1690894796332"
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
