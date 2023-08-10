@@ -8,17 +8,31 @@ jobs:
   send-slack-webhook:
     runs-on: ubuntu-latest
     env:
-      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+      PR_NAME: ${{ github.event.pull_request.title }}
     steps:
       - name: hey
         run: echo $PR_AUTHOR
       - name: slack-send
         uses: slackapi/slack-github-action@v1.24.0
+        if: $PR_NAME == 'test6'
         with:
           payload: |
             {
               "channel": "#test-최현구",
               "username": "사이보그 현구막",
+              "text": $PR_AUTHOR,
+              "icon_url": "https://opgg-static.akamaized.net/meta/images/lol/champion/Blitzcrank.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_160&v=1690894796332"
+            }
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+      - name: slack-send
+        uses: slackapi/slack-github-action@v1.24.0
+        if: $PR_NAME != 'test6'
+        with:
+          payload: |
+            {
+              "channel": "#test-최현구",
+              "username": "test 6 아님구막",
               "text": $PR_AUTHOR,
               "icon_url": "https://opgg-static.akamaized.net/meta/images/lol/champion/Blitzcrank.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_160&v=1690894796332"
             }
