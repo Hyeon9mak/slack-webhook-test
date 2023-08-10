@@ -10,11 +10,9 @@ jobs:
     env:
       PR_NAME: ${{ github.event.pull_request.title }}
     steps:
-      - name: hey
-        run: echo $PR_AUTHOR
       - name: slack-send
         uses: slackapi/slack-github-action@v1.24.0
-        if: ${{ PR_NAME }} == 'test6'
+        if: $PR_NAME == 'test6'
         with:
           payload: |
             {
@@ -27,7 +25,7 @@ jobs:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
       - name: slack-send2
         uses: slackapi/slack-github-action@v1.24.0
-        if: ${{ PR_NAME }} != 'test6'
+        if: $PR_NAME != 'test6'
         with:
           payload: |
             {
