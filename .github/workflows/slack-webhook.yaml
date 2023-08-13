@@ -2,7 +2,7 @@ name: Slack notification when Create pull request
 
 on:
   pull_request:
-    types: [assigned]
+    types: [review_requested]
 
 jobs:
   send-slack-webhook:
